@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>CocktailDB API</title>
+  </head>
+  <body>
+    <header class="header">
+      <a href="#" class="logo">
+        <img src="images/logo.png" alt="BAR logo" class="logo-img" />
+      </a>
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="#" class="nav-link">About</a></li>
+          <li><a href="#" class="nav-link">Find Your Cocktail</a></li>
+          <li><a href="#" class="nav-link">Recommendations</a></li>
+          <li><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="section-about">
+        <p class="about-text">
+          Welcome to BAR, where mixology meets sophistication. BAR is not just a
+          place; it's an attitude—a reflection of the vibrant and eclectic
+          neighborhoods where trends are born and innovation thrives. Our goal
+          is to be your ultimate destination for cocktail inspiration.
+        </p>
+        <p class="about-text">
+          Join us at BAR and experience the epitome of cocktail culture. Whether
+          you're a seasoned connoisseur or exploring the world of mixology for
+          the first time, BAR welcomes you to indulge in the art of the
+          cocktail.
+        </p>
+      </section>
+      <section class="section-cocktail">
+        <p class="cocktail-text">
+          Simply tell us your desired drink, and we'll provide you with the
+          ingredients and instructions to craft it perfectly.
+        </p>
+        <input
+          class="coctail-input"
+          id="input-cocktail"
+          type="text"
+          name=""
+          value=""
+        />
+        <button class="btn-cocktail" id="cocktail" type="button" name="button">
+          Find Your Cocktail
+        </button>
+        <img class="cocktail-img" src="" alt="" />
+        <p class="cocktail-name">Name</p>
+        <p class="cocktail-instructions">Instructions</p>
+        <p class="cocktail-ingredients">Ingredients</p>
+      </section>
+      <section class="section-recommend">
+        <button class="button-recommend" type="button" name="button">
+          Recommend
+        </button>
+        <img class="recommend-img" src="" alt="" />
+        <p class="recommend-name">Name</p>
+        <p class="recommend-instructions">Instructions</p>
+        <p class="recommend-ingredients">Ingredients</p>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="script.js"></script>
+  </body>
+</html>

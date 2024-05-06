@@ -1,0 +1,62 @@
+/* Colors:
+Neon: 
+#f6ceec;
+#e1b8e3;
+#ab5b93;
+#b8bbdd;
+#eaebf2;
+
+
+Purple: 
+#430d56;
+#ab5b93;
+
+
+*/
+
+/* Universal Resets */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* Header */
+
+.logo-img {
+  height: 12.4rem;
+  border-radius: 50%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 14rem;
+  padding: 0 12rem;
+}
+
+.nav-list {
+  list-style: none;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 4.8rem;
+}
+
+.nav-link:link,
+.nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 2rem;
+}
