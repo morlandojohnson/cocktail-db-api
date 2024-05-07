@@ -60,3 +60,10 @@ body {
   text-decoration: none;
   font-size: 2rem;
 }
+
+/* Images */
+
+.cocktail-img,
+.recommend-img {
+  height: 20rem;
+}
