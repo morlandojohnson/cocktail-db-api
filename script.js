@@ -1,3 +1,6 @@
+// Year for Copyright
+document.querySelector(".year").innerHTML = new Date().getFullYear();
+
 document.querySelector("#cocktail").addEventListener("click", getDrink);
 
 document.querySelector("#random").addEventListener("click", randomDrink);
