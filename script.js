@@ -41,7 +41,13 @@ function createIngredientsList(drinkData) {
 function getDrink(type) {
   let url;
   if (type === "search") {
-    const drink = document.querySelector("#cocktail").value.toLowerCase();
+    const drink = document
+      .querySelector("#cocktail")
+      .value.trim()
+      .toLowerCase();
+    if (!drink) {
+      return;
+    }
     url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`;
   } else {
     url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
@@ -50,7 +56,6 @@ function getDrink(type) {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data.drinks);
       cocktailName.innerText = data.drinks[0].strDrink;
       cocktailImg.src = data.drinks[0].strDrinkThumb;
       coctailInstruction.innerText = data.drinks[0].strInstructions;
@@ -64,3 +69,39 @@ function getDrink(type) {
       console.log(`error ${err}`);
     });
 }
+
+// Smooth Scroll
+
+const links = document.querySelectorAll("a");
+
+for (const link of links) {
+  link.addEventListener("click", clickHandler);
+}
+
+function clickHandler(event) {
+  event.preventDefault();
+  const href = this.getAttribute("href");
+  const offsetTop = document.querySelector(href).offsetTop;
+
+  scroll({
+    top: offsetTop,
+    behavior: "smooth",
+  });
+}
+
+// Mobile Hamburger Menu
+
+const hamburger = document.querySelector(".hamburger");
+const navList = document.querySelector(".nav-list");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  navList.classList.toggle("active");
+});
+
+document.querySelectorAll(".nav-link").forEach((link) =>
+  link.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navList.classList.remove("active");
+  })
+);

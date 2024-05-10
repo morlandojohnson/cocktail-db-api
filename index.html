@@ -19,10 +19,15 @@
       </a>
       <nav class="main-nav">
         <ul class="nav-list">
-          <li><a href="#" class="nav-link">Find Your Cocktail</a></li>
-          <li><a href="#" class="nav-link">About</a></li>
-          <li><a href="#" class="nav-link">Contact</a></li>
+          <li><a href="#find-cocktail" class="nav-link">Find Your Cocktail</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#cta" class="nav-link">Contact</a></li>
         </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
       </nav>
     </header>
     <main>
@@ -39,7 +44,7 @@
           <img src="images/alcohol2.jpg" class="hero-img" alt="Cocktail sitting on a bar">
 
       </section>
-      <section class="section-cocktail">
+      <section class="section-cocktail" id="find-cocktail">
         <div class="container">
           <h2 class="section-header cocktail-header">Find Your Cocktail</h2>
           <div class="cocktail-content-box">              <div class="cocktail-search">
@@ -64,7 +69,7 @@
             </div>
           </div>
         </section>
-        <section class="section-about-us">
+        <section class="section-about-us" id="about">
           <div class="container">
             <h2 class="section-header">About Us</h2>
             <p class="about-text">
@@ -74,7 +79,7 @@
             </p>
           </div>
         </section>
-        <section class="section-cta">
+        <section class="section-cta" id="cta">
           <div class="container">
             <div class="cta">
               <div class="cta-text-box">
@@ -92,7 +97,7 @@
                     <label for="message">Message:</label>
                     <textarea name="message" id="message" rows="5"></textarea>
                   </div>
-                  <button class="btn-form">Connect with us</button>
+                  <button class="btn-form">Submit</button>
                 </form>
               </div>
               <div class="cta-img-box"></div>
@@ -102,7 +107,7 @@
     </main>
     <footer>
       <section class="footer-container">
-        <a href="#" class="footer-link"><ion-icon class="social-icon" name="logo-github"></ion-icon></a>
+        <a href="./https://github.com/morlandojohnson/cocktail-db-api" class="footer-link"><ion-icon class="social-icon" name="logo-github"></ion-icon></a>
         </div>
         <p class="copyright">Copyright &copy; <span class="year"></span> by BAR, Inc.</p>
         <img src="images/cover.png" class="footer-logo" alt="BAR Logo">

@@ -49,6 +49,7 @@ Shades:
 
 html {
   font-size: 62.5%;
+  /* scroll-behavior: smooth; */
 }
 
 body {
@@ -81,6 +82,19 @@ label {
 input {
   background-color: #fcf9f5;
   color: #322c2b;
+}
+
+.btn-search:active,
+.btn-form:active {
+  transform: scale(0.95);
+}
+
+/* Images */
+
+.cocktail-img,
+.recommend-img {
+  height: 32rem;
+  width: 32em;
 }
 
 /* Header */
@@ -122,12 +136,19 @@ input {
   color: #c67d4e;
 }
 
-/* Images */
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
 
-.cocktail-img,
-.recommend-img {
-  height: 32rem;
-  width: 32em;
+.bar {
+  display: block;
+  width: 2.5rem;
+  height: 0.3rem;
+  margin: 0.5rem auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #fff;
 }
 
 /* Hero */
@@ -160,26 +181,6 @@ h1 {
 .hero-text {
   font-size: 2rem;
   line-height: 1.4;
-}
-
-.btn:link,
-.btn:visited {
-  display: inline-block;
-  text-decoration: none;
-  padding: 1.2rem 2.4rem;
-  margin: 0 auto 3.2rem;
-  border-radius: 5rem;
-  font-size: 2rem;
-  font-weight: 600;
-  background-color: #ecd6bb;
-  color: #c67d4e;
-  transition: all 0.3s;
-}
-
-.btn:hover,
-.btn:active {
-  background-color: #e4c59e;
-  color: #8b5837;
 }
 
 .hero-img {
@@ -233,6 +234,10 @@ input:focus {
   outline: none;
 }
 
+input:focus::placeholder {
+  color: transparent;
+}
+
 .btn-search {
   border-radius: 2.4rem;
   padding: 1.2rem 2.4rem;
@@ -245,10 +250,6 @@ input:focus {
 .btn-search:hover {
   background-color: #e4c59e;
   color: #8b5837;
-}
-
-.btn-search:active {
-  transform: scale(0.95);
 }
 
 .cocktail-input,
@@ -382,7 +383,7 @@ input:focus {
   border: none;
   cursor: pointer;
   font-family: inherit;
-  transition: all 0.3;
+  transition: all 0.3s;
   color: #322c2b;
   background-color: #fcf9f5;
 }
@@ -429,6 +430,10 @@ footer {
 .footer-logo {
   height: 3.2rem;
 }
+
+.social-icon {
+  color: #000;
+}
 /* Media */
 
 @media only screen and (max-width: 576px) {
@@ -437,10 +442,6 @@ footer {
   }
 
   /* Header */
-
-  .nav-list {
-    gap: 2.4rem;
-  }
 
   .nav-link:link,
   .nav-link:visited,
@@ -474,6 +475,85 @@ footer {
   }
 
   /* Cocktail */
+
+  .cocktail-img {
+    width: 40rem;
+    height: 40rem;
+  }
+
+  /* CTA */
+
+  .cta-text-box {
+    padding: 3.2rem;
+  }
+
+  /* FOOTER */
+
+  footer {
+    padding: 1.6rem 6.4rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 56.25;
+  }
+
+  /* Nav Header */
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(0.8rem) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-0.8rem) rotate(-45deg);
+  }
+
+  .nav-list {
+    position: fixed;
+    left: -100%;
+    top: 7rem;
+    gap: 0;
+    flex-direction: column;
+    background-color: #322c2b;
+    width: 100%;
+    height: 70vh;
+    text-align: center;
+    transition: 0.3s;
+  }
+
+  .nav-list.active {
+    left: 0;
+  }
+
+  .nav-link {
+    margin: 1.2rem 0;
+  }
+
+  /* Hero */
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text-box {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 5.5rem;
+    line-height: 1.2;
+  }
+
+  /* Cocktail */
+
   .cocktail-search {
     flex-direction: column;
   }
@@ -483,14 +563,33 @@ footer {
     align-items: center;
   }
 
+  .cocktail-img {
+    width: 48rem;
+    height: 48rem;
+  }
+
+  .cocktail-box {
+    align-items: center;
+  }
+
+  .box-subheader {
+    font-size: 2.2rem;
+  }
+
+  .cocktail-name {
+    font-size: 2rem;
+  }
+
+  .cocktail-glass,
+  .cocktail-ingredient-item,
+  .cocktail-instructions {
+    font-size: 1.8rem;
+  }
+
   /* CTA */
 
   .cta {
     grid-template-columns: 1fr;
-  }
-
-  .cta-text-box {
-    padding: 3.2rem;
   }
 
   .cta-form {
@@ -507,13 +606,19 @@ footer {
     grid-row: 1;
   }
 
-  /* FOOTER */
+  /* Footer */
 
   footer {
-    padding: 1.6rem 6.4rem;
+    padding: 3.2rem 9.6rem;
   }
 
   .footer-container {
     justify-content: space-evenly;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  footer {
+    padding: 3.2rem 16rem;
   }
 }
