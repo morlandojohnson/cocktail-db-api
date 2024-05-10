@@ -475,7 +475,7 @@ footer {
 
   /* About */
   .about-text {
-    text-align: center;
+    text-align: start;
     line-height: 1.6;
   }
 
