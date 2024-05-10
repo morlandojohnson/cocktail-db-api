@@ -469,7 +469,7 @@ footer {
   }
 
   h1 {
-    font-size: 4.8rem;
+    font-size: 5.2rem;
     line-height: 1.2;
   }
 
@@ -500,6 +500,13 @@ footer {
 
   footer {
     padding: 1.6rem 6.4rem;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  h1 {
+    font-size: 5.5rem;
+    line-height: 1.2;
   }
 }
 
@@ -554,11 +561,6 @@ footer {
 
   .hero-text-box {
     text-align: center;
-  }
-
-  h1 {
-    font-size: 5.5rem;
-    line-height: 1.2;
   }
 
   /* Cocktail */
