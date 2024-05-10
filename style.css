@@ -78,6 +78,11 @@ label {
   margin-bottom: 3.2rem;
 }
 
+input {
+  background-color: #fcf9f5;
+  color: #322c2b;
+}
+
 /* Header */
 
 .logo-img {
@@ -121,13 +126,14 @@ label {
 
 .cocktail-img,
 .recommend-img {
-  height: 200px;
+  height: 32rem;
+  width: 32em;
 }
 
 /* Hero */
 
 .section-hero {
-  padding: 4.8rem 0 9.6rem;
+  padding: 6.4rem 0 9.6rem;
 }
 
 .hero {
@@ -180,31 +186,29 @@ h1 {
   width: 100%;
 }
 
-/* About Us */
-
-.section-about-us {
-  padding: 9.6rem 0;
-}
-
-.about-text {
-  font-size: 1.8rem;
-  line-height: 1.4;
-  letter-spacing: 0.05rem;
-}
-
 /* Cocktail Section */
+
+.section-cocktail {
+  background-color: #fcf9f5;
+  padding: 9.6rem;
+}
+
+.cocktail-header {
+  color: #322c2b;
+}
 
 .cocktail-content-box {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-  margin: 9.6rem 0;
+  margin: 4.8rem 0;
 }
 
 .cocktail-search {
   display: flex;
   justify-content: center;
   gap: 2.4rem;
+  margin-bottom: 4.8rem;
 }
 
 .cocktail-input {
@@ -212,6 +216,21 @@ h1 {
   padding: 1.2rem 2.4rem;
   text-align: center;
   font-size: 1.8rem;
+  border: none;
+  background-image: url("images/search.png");
+  background-size: 2.4rem;
+  background-repeat: no-repeat;
+  background-position: 2rem 1rem;
+}
+
+::placeholder,
+.btn-search {
+  color: #322c2b;
+  padding-left: 2rem;
+}
+
+input:focus {
+  outline: none;
 }
 
 .btn-search {
@@ -220,9 +239,6 @@ h1 {
   font-size: 1.8rem;
   border: none;
   cursor: pointer;
-  /* font-weight: 600; */
-  background-color: #ecd6bb;
-  color: #c67d4e;
   transition: all 0.3s;
 }
 
@@ -231,15 +247,22 @@ h1 {
   color: #8b5837;
 }
 
+.btn-search:active {
+  transform: scale(0.95);
+}
+
+.cocktail-input,
+.btn-search {
+  background-color: #e4c59e;
+}
+
 .cocktail-info-box {
   display: flex;
   justify-content: space-evenly;
+  gap: 2.4rem;
 }
 
 .cocktail-box {
-  height: 20rem;
-  width: 20rem;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
@@ -252,21 +275,46 @@ h1 {
   padding: 1.2rem 0;
 }
 
+.box-subheader,
 .cocktail-name,
 .cocktail-glass,
-.cocktail-instructions {
+.cocktail-instructions,
+.cocktail-ingredient-item {
+  color: #322c2b;
   font-size: 1.6rem;
   padding-left: 1.2rem;
+}
+
+.cocktail-name {
+  font-weight: 600;
+}
+
+.cocktail-ingredient-item {
+  list-style: none;
+  margin-bottom: 1.2rem;
 }
 
 .cocktail-box {
   display: none;
 }
 
+/* About Us */
+
+.section-about-us {
+  padding: 9.6rem 0;
+}
+
+.about-text {
+  font-size: 1.8rem;
+  line-height: 1.4;
+  letter-spacing: 0.05rem;
+}
+
 /* Contact Us Section */
 
 .section-cta {
   padding: 4.8rem 0 12.8rem;
+  background-color: #fcf9f5;
 }
 
 .cta {
@@ -275,6 +323,7 @@ h1 {
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
   border-radius: 1.1rem;
   overflow: hidden;
+  background-color: #322c2b;
 }
 
 .cta-text-box {
@@ -300,10 +349,10 @@ h1 {
   padding: 1.2rem;
   font-size: 1.6rem;
   font-family: inherit;
-  color: inherit;
   border: none;
   border-radius: 1.1rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: #322c2b;
 }
 
 .cta-message {
@@ -315,10 +364,11 @@ h1 {
   padding: 1.2rem;
   font-size: 1.6rem;
   font-family: inherit;
-  color: inherit;
   border: none;
   border-radius: 1.1rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  background-color: #fcf9f5;
+  color: #322c2b;
 }
 
 .btn-form {
@@ -333,6 +383,14 @@ h1 {
   cursor: pointer;
   font-family: inherit;
   transition: all 0.3;
+  color: #322c2b;
+  background-color: #fcf9f5;
+}
+
+.btn-form:hover,
+.btn-form:active {
+  background-color: #e4c59e;
+  color: #c67d4e;
 }
 
 .cta-img-box {
@@ -377,8 +435,21 @@ footer {
   html {
     font-size: 50%;
   }
-  /* Hero */
 
+  /* Header */
+
+  .nav-list {
+    gap: 2.4rem;
+  }
+
+  .nav-link:link,
+  .nav-link:visited,
+  .nav-link:hover,
+  .nav-link:active {
+    font-size: 1.8rem;
+  }
+
+  /* Hero */
   .section-hero {
     padding: 2.4rem 0 6.4rem;
   }

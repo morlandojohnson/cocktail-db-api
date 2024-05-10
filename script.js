@@ -1,9 +1,20 @@
 // Year for Copyright
 document.querySelector(".year").innerHTML = new Date().getFullYear();
 
-document.querySelector("#cocktail").addEventListener("click", getDrink);
+// Variables for function
+const cocktailName = document.querySelector(".cocktail-name");
+const cocktailImg = document.querySelector(".cocktail-img");
+const coctailInstruction = document.querySelector(".cocktail-instructions");
+const coctailGlass = document.querySelector(".cocktail-glass");
+const cocktailBoxes = document.querySelectorAll(".cocktail-box");
 
-document.querySelector("#random").addEventListener("click", randomDrink);
+// Event Listeners for Search
+document
+  .querySelector("#cocktail-btn")
+  .addEventListener("click", () => getDrink("search"));
+document
+  .querySelector("#recommend-btn")
+  .addEventListener("click", () => getDrink("random"));
 
 // Creating List from API call for ingredients and measurements
 
@@ -12,10 +23,8 @@ function createIngredientsList(drinkData) {
   ingredientsList.innerHTML = "";
 
   for (let i = 1; i <= 15; i++) {
-    const ingredientKey = "strIngredient" + i;
-    const measureKey = "strMeasure" + i;
-    const ingredient = drinkData[ingredientKey];
-    const measure = drinkData[measureKey];
+    const ingredient = drinkData["strIngredient" + i];
+    const measure = drinkData["strMeasure" + i];
     if (ingredient) {
       const listItem = document.createElement("li");
       listItem.textContent = `${measure ? measure + " " : ""}${ingredient}`;
@@ -27,63 +36,29 @@ function createIngredientsList(drinkData) {
   }
 }
 
-//  Search call for API for Cocktail Recipe Finder
-function getDrink() {
-  let drink = document.querySelector("#input-cocktail").value.toLowerCase();
+// Function to Search for drink or return recommended drink
 
-  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data.drinks);
-      document.querySelector(".cocktail-name").innerText =
-        data.drinks[0].strDrink;
-      document.querySelector(".cocktail-img").src =
-        data.drinks[0].strDrinkThumb;
-      document.querySelector(".cocktail-instructions").innerText =
-        data.drinks[0].strInstructions;
-      createIngredientsList(data.drinks[0]);
-    })
-    .catch((err) => {
-      console.log(`error ${err}`);
-    });
-}
-
-function createRandomIngredients(drinkData) {
-  const recommendList = document.querySelector(".recommend-ingredients-list");
-  recommendList.innerHTML = "";
-
-  for (let i = 1; i <= 15; i++) {
-    const recommendIngredientKey = "strIngredient" + i;
-    const recommendMeasureKey = "strMeasure" + i;
-    const recommendIngredient = drinkData[recommendIngredientKey];
-    const recommendMeasure = drinkData[recommendMeasureKey];
-    if (recommendIngredient) {
-      const recommendListItem = document.createElement("li");
-      recommendListItem.textContent = `${
-        recommendMeasure ? recommendMeasure + " " : ""
-      }${recommendIngredient}`;
-      recommendListItem.classList.add("recommend-ingredient-item");
-      recommendList.appendChild(recommendListItem);
-    } else {
-      break;
-    }
+function getDrink(type) {
+  let url;
+  if (type === "search") {
+    const drink = document.querySelector("#cocktail").value.toLowerCase();
+    url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`;
+  } else {
+    url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
   }
-}
 
-// API Call for Random Drink
-
-function randomDrink() {
-  fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+  fetch(url)
     .then((res) => res.json())
     .then((data) => {
       console.log(data.drinks);
-      document.querySelector(".recommend-name").innerText =
-        data.drinks[0].strDrink;
-      document.querySelector(".recommend-img").src =
-        data.drinks[0].strDrinkThumb;
-      document.querySelector(".recommend-instructions").innerText =
-        data.drinks[0].strInstructions;
-      createRandomIngredients(data.drinks[0]);
+      cocktailName.innerText = data.drinks[0].strDrink;
+      cocktailImg.src = data.drinks[0].strDrinkThumb;
+      coctailInstruction.innerText = data.drinks[0].strInstructions;
+      coctailGlass.innerText = `Serve in: ${data.drinks[0].strGlass}`;
+      createIngredientsList(data.drinks[0]);
+      cocktailBoxes.forEach((box) => {
+        box.style.display = "flex";
+      });
     })
     .catch((err) => {
       console.log(`error ${err}`);
