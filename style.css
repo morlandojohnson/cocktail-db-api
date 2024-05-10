@@ -57,6 +57,11 @@ body {
   background-color: #322c2b;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 /* Global */
 
 h1,
@@ -476,6 +481,10 @@ footer {
 
   /* Cocktail */
 
+  .cocktail-input {
+    padding: 1.2rem 1.2rem;
+  }
+
   .cocktail-img {
     width: 40rem;
     height: 40rem;
@@ -572,6 +581,10 @@ footer {
     align-items: center;
   }
 
+  .cocktail-ingredient-item {
+    text-align: center;
+  }
+
   .box-subheader {
     font-size: 2.2rem;
   }
@@ -594,6 +607,7 @@ footer {
 
   .cta-form {
     grid-template-columns: 1fr;
+    column-gap: 0;
   }
 
   .cta-name,
