@@ -417,16 +417,6 @@ footer {
   align-items: center;
 }
 
-.footer-link {
-  text-decoration: none;
-  font-size: 1.6rem;
-}
-
-.social-icon {
-  height: 3.2rem;
-  width: 3.2rem;
-}
-
 .copyright {
   font-size: 1.2rem;
   font-weight: 500;
@@ -436,9 +426,6 @@ footer {
   height: 3.2rem;
 }
 
-.social-icon {
-  color: #000;
-}
 /* Media */
 
 @media only screen and (max-width: 576px) {
